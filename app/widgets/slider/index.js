@@ -13,24 +13,36 @@ export const constructSlider = el => {
   // TODO check for fix relations and put in redraw
   //track_bgEl.x = trackEl.x
   
- //adds ALL properties to sub-elements To access them from js
-  Object.defineProperty(el, 'track_bg',{ 
-    get() {return track_bgEl;}
-  }); 
-  Object.defineProperty(el, 'track',{ 
-    get() {return trackEl;}
-  }); 
-  Object.defineProperty(el, 'marker',{ 
-    get() {return markerEl;}
-  }); 
+  const track = {
+    get style() {
+      return trackEl.style;
+    }
+  };
+  Object.defineProperty(el, 'track', {
+    get: function() {return track;}
+  });
+  
+  const track_bg = {
+    get style() {
+      return track_bgEl.style;
+    }
+  };
+  Object.defineProperty(el, 'track_bg', {
+    get: function() {return track_bg;}
+  });
+  
+  const marker = {
+    get style() {
+      return markerEl.style;
+    }
+  };
+  Object.defineProperty(el, 'marker', {
+    get: function() {return marker;}
+  });
   
   console.log(trackEl.parent.id + " fill: " + trackEl.style.fill);
   
-  //hardcode all x at el.x: no changes from js on subs.x
-  el.redraw = () => {
-    track_bgEl.x = trackEl.x = markerEl.cx = 0//markerEl.r/2; 
-  }
-  el.redraw();
+  
   
   let _value = 0
   let _listener   // onchange event listener (handler)
