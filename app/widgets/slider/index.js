@@ -10,13 +10,13 @@ export const constructSlider = el => {
   const markerEl = el.getElementById('marker');
   
   
-  const track = {
+  const blah = {
     get style() {
       return trackEl.style;
     }
   };
-  Object.defineProperty(el, 'track', {
-    get: function() {return track;}
+  Object.defineProperty(el, 'blah', {
+    get: function() {return blah;}
   });
   
   const track_bg = {
