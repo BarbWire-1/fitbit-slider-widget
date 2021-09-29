@@ -4,14 +4,11 @@ import { constructWidgets, getConfig } from './widget_utils';
 
 export const constructSlider = el => {
   el.class = el.class;    // bring forward (ie, trigger) application of CSS styles
-  //const slider = document.getElementById('slider');
-  //el.class = slider.class;
+  
   const track_bgEl = el.getElementById('track_bg')
   const trackEl = el.getElementById('track');
   const markerEl = el.getElementById('marker');
   
-  // TODO check for fix relations and put in redraw
-  //track_bgEl.x = trackEl.x
   
   const track = {
     get style() {
@@ -40,7 +37,7 @@ export const constructSlider = el => {
     get: function() {return marker;}
   });
   
-  console.log(trackEl.parent.id + " fill: " + trackEl.style.fill);
+  //console.log(trackEl.parent.id + " fill: " + trackEl.style.fill);
   
   
   
@@ -74,8 +71,6 @@ export const constructSlider = el => {
     // TODO 2 implement 'step' and round to it
     trackEl.width = evt.screenX - el.x
     markerEl.cx = evt.screenX - el.x
-    //console.log(JSON.stringify(el.children));
-    //console.log("markerEl: "+ JSON.stringify(markerEl))
    
     _value = Math.round((evt.screenX - el.x) / el.width * (_max - _min) + _min)
     //console.log(`x=${evt.screenX} el=${el.x} val=${value}`)
@@ -103,5 +98,3 @@ export const constructSliders = parentEl => {
 }
 
 if (config.autoConstruct) constructSliders();
-
-//WHY??: Unhandled exception: ReferenceError: mySliderEl2 is not defined  ? at app/index.js:8,1// working anyway

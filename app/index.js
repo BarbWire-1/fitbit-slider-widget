@@ -11,13 +11,17 @@ function mySliderChange(val) {
   labelEl.text = `${(val)}, ${(mySlider2El.value)}` // lazy way to show how to get a slider's value without a listener
 }
 
-//document.getElementsByClassName('marker').forEach(el => {el.style.fill = 'white'})
+//only style gets applied
 mySlider2El.track.style.fill = "blue";
-mySliderEl.track.style.fill = "red";
-//mySlider2El.x = 20;
+mySliderEl.track.style.fill = "magenta";
 mySliderEl.track_bg.style.fill = "orange";
+mySliderEl.marker.style.fill = "red";
+mySliderEl.track_bg.style.opacity = 1;
 mySlider2El.track_bg.style.fill = "white";
-mySliderEl.marker.cx = 50;//hardcoded at El.x, butgets overwritten by redraw in function
-mySlider2El.track.x = 100;//hardcoded at El.x, butgets overwritten by redraw in function
-mySlyderEl.track.y = 200;// this does NOT get applied. why? somewhere hardcoded relation? aaaah , guess the setting in symbol fix it??
-// mySliderEl.y = 250;// also NOT applied from here
+
+//no error for x,y, but no influence
+mySlider2El.x = 20;
+mySliderEl.marker.cx = 50;
+mySlider2El.track.x = 100;
+mySlyderEl.track.y = 200;
+mySliderEl.y = 250;
