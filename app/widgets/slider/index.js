@@ -10,31 +10,31 @@ export const constructSlider = el => {
   const markerEl = el.getElementById('marker');
   
   
-  const blah = {
+  const trackAccessor = {
     get style() {
       return trackEl.style;
     }
   };
   Object.defineProperty(el, 'blah', {
-    get: function() {return blah;}
+    get: function() {return trackAccessor;}
   });
   
-  const track_bg = {
+  const track_bgAccessor = {
     get style() {
       return track_bgEl.style;
     }
   };
   Object.defineProperty(el, 'track_bg', {
-    get: function() {return track_bg;}
+    get: function() {return track_bgAccessor;}
   });
   
-  const marker = {
+  const markerAccessor = {
     get style() {
       return markerEl.style;
     }
   };
   Object.defineProperty(el, 'marker', {
-    get: function() {return marker;}
+    get: function() {return markerAccessor;}
   });
   
   //console.log(trackEl.parent.id + " fill: " + trackEl.style.fill);
