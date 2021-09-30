@@ -108,6 +108,15 @@ export const constructSlider = el => {
       case 'max':
         _max = value;
         break;
+      case 'marker':
+        switch(name){
+          case 'fill':
+            markerEl.style.fill = value;
+            break;
+          case 'opacity':
+            markerEl.style.opacity = value;
+            break;
+        }
     }
   }
   //adjust rounding differences (??)

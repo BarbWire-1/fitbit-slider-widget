@@ -6,9 +6,9 @@
 #mySlider #track {
     fill: orange;
 }
-#mySlider #marker {
+/* #mySlider #marker {
     fill: limegreen;
-}
+} */
 
 
 #mySlider2 #track_bg {
@@ -26,9 +26,9 @@
 
 /* gets applied on all, when no settings on #id */
 /* also WITHOUT el.class = el.class */
-.slider #marker {
+/* .slider #marker {
     fill: red;
-}
+} */
 .slider #track {
     fill: white;
 }

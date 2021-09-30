@@ -16,7 +16,7 @@ function mySliderChange(val) {
 
 mySliderEl.track_bg.style.fill = "orange";
 mySliderEl.track.style.fill = "magenta";
-mySliderEl.marker.style.fill = "red";
+//mySliderEl.marker.style.fill = "red";
 mySliderEl.track_bg.style.opacity = 1;
 
 mySlider2El.track_bg.style.fill = "blue";

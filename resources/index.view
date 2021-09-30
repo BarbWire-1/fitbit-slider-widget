@@ -4,7 +4,7 @@
   </defs>
 
   <use id="mySlider" href="#slider" x="100" y="100" width="136" height="50" >   <!-- width can't be specified as % -->
-    <set href="#config" attributeName="text-buffer" to="min:0; max:10000" />
+    <set href="#config" attributeName="text-buffer" to="min:0; max:10000; marker:fill:yellow"/>
   </use>
   
   <g id="id" transform="translate(0%,0%) rotate(0)">
