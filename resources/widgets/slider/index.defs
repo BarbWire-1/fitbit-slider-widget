@@ -3,9 +3,9 @@
 
   <symbol id="slider" type="slider" class="slider" width="0" height="0" >
     <rect id="track_bg"  width="100%" y="50%-3" height="6" />
-    <rect id="track"  width="0" y="50%-3" height="6"  />
+    <rect id="track"  width="0" y="50%-3" height="6" />
     <circle id="marker"  cy="50%" r="10"/>
-    <text id="config" text-length="80" display="none" />
+    <text id="config" text-length="80" display="none"/>
     <rect id="touch" width="100%" height="100%" pointer-events="visible" fill="none" />
   </symbol>
 </defs>
