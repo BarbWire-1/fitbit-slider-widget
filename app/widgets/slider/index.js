@@ -100,18 +100,18 @@ export const constructSlider = el => {
 
   const config = getConfig(el);
   for (const name in config) {
-    const value = Number(config[name]);   // convert to Number here because the only allowed values are numbers
+    const value = (config[name])//Number(config[name]);   // convert to Number here because the only allowed values are numbers
     switch(name) {
       case 'min':
-        _min = value;
+        _min = Number(value);
         break;
       case 'max':
-        _max = value;
+        _max = Number(value);
         break;
       case 'marker':
         switch(name){
           case 'fill':
-            markerEl.style.fill = value;
+            markerEl.style.fill = (value).toString;
             break;
           case 'opacity':
             markerEl.style.opacity = value;
@@ -119,6 +119,7 @@ export const constructSlider = el => {
         }
     }
   }
+  console.log(markerEl.style.fill)
   //trying to get subs in this config, but not working this way.
   // TODO make own config or get this nested structure??
   //adjust rounding differences (??)
