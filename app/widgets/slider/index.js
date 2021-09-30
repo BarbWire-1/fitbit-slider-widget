@@ -10,14 +10,14 @@ export const constructSlider = el => {
   const markerEl = el.getElementById('marker');
   
   
-  //get style properties on an accessor-var and pass them to el.El
+  //get style properties on an accessor-variable and pass them to el.El
   const trackAccessor = {
     get style() {
       return trackEl.style;
     }
   };
   Object.defineProperty(el, 'track', {
-    get: function() {return trackAccessor;}
+    get() {return trackAccessor;}
   });
   
   const track_bgAccessor = {
@@ -26,7 +26,7 @@ export const constructSlider = el => {
     }
   };
   Object.defineProperty(el, 'track_bg', {
-    get: function() {return track_bgAccessor;}
+    get() {return track_bgAccessor;}
   });
   
   const markerAccessor = {
@@ -35,7 +35,7 @@ export const constructSlider = el => {
     }
   };
   Object.defineProperty(el, 'marker', {
-    get: function() {return markerAccessor;}
+    get() {return markerAccessor;}
   });
   
   //console.log(trackEl.parent.id + " fill: " + trackEl.style.fill);
@@ -80,13 +80,13 @@ export const constructSlider = el => {
   
   
   Object.defineProperty(el, 'onchange', {
-    set: function(listener) {
+    set(listener) {
       _listener = listener
     }
   });
 
   Object.defineProperty(el, 'value', {
-    get: function() {
+    get() {
       return _value
     }
   });
