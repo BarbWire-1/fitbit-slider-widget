@@ -119,6 +119,8 @@ export const constructSlider = el => {
         }
     }
   }
+  //trying to get subs in this config, but not working this way.
+  // TODO make own config or get this nested structure??
   //adjust rounding differences (??)
   _min -= _max / 66;
   _max += _max / 66;
