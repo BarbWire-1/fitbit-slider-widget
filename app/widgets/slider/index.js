@@ -58,7 +58,36 @@ export const constructSlider = el => {
   //   console.log(e.style)
   //   //console.log(e+".style.fill:" + e.style.fill)
   // })
- 
+  // Construct an object that provides controlled access to markerEl:
+  // This is shockingly over-engineered, but fairly safe!
+  // ONE property for ONE subelement expl!
+  const markerPublic = {  // the public interface
+    markerStyle: {}       // we give this a 'fill' property soon
+  }
+  Object.defineProperty(markerPublic, 'style', {
+    get() {return markerPublic.markerStyle;}
+  });
+  Object.defineProperty(markerPublic.markerStyle, 'fill', {
+    set(newValue) {markerEl.style.fill = newValue;}
+  });
+  Object.defineProperty(el, 'marker',{
+    get() {return markerPublic;}  // we don't give the caller markerEl, so they can't change things we don't want them to
+  });
+  
+  //________________________________________________________________________________________________________
+  const trackPublic = {  // the public interface
+    trackStyle: {}       // we give this a 'fill' property soon
+  }
+  Object.defineProperty(trackPublic, 'style', {
+    get() {return trackPublic.trackStyle;}
+  });
+  Object.defineProperty(trackPublic.trackStyle, 'fill', {
+    set(newValue) {trackEl.style.fill = newValue;}
+  });
+  Object.defineProperty(el, 'track',{
+    get() {return trackPublic;}  // we don't give the caller markerEl, so they can't change things we don't want them to
+  });
+  //___________________________________________________________________________________________________________
   
   //get style properties on an accessor-variable and pass them to el.El
   const trackAccessor = {
