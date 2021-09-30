@@ -12,12 +12,18 @@ function mySliderChange(val) {
 }
 
 //only style gets applied
-mySlider2El.track.style.fill = "blue";
-mySliderEl.track.style.fill = "magenta";
+
+
 mySliderEl.track_bg.style.fill = "orange";
+mySliderEl.track.style.fill = "magenta";
 mySliderEl.marker.style.fill = "red";
 mySliderEl.track_bg.style.opacity = 1;
-mySlider2El.track_bg.style.fill = "white";
+
+mySlider2El.track_bg.style.fill = "blue";
+mySlider2El.track.style.fill = "limegreen";
+mySlider2El.marker.style.fill = "yellow";
+mySlider2El.track_bg.style.opacity = 1;
+
 
 //no error for x,y, but no influence
 //as not exposed
