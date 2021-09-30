@@ -23,6 +23,7 @@ mySlider2El.track_bg.style.fill = "blue";
 mySlider2El.track.style.fill = "limegreen";
 mySlider2El.marker.style.fill = "yellow";
 mySlider2El.track_bg.style.opacity = 1;
+mySlider2El.marker.style.opacity = 0.5;
 
 
 //no error for x,y, but no influence

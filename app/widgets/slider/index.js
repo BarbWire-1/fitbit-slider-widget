@@ -58,35 +58,66 @@ export const constructSlider = el => {
   //   console.log(e.style)
   //   //console.log(e+".style.fill:" + e.style.fill)
   // })
- 
-  
-  //get style properties on an accessor-variable and pass them to el.El
-  const trackAccessor = {
-    get style() {
-      return trackEl.style;
-    }
-  };
-  Object.defineProperty(el, 'track', {
-    get() {return trackAccessor;}
+  //____________________________________________________________________________________________
+  // Construct an object that provides controlled access to markerEl:
+  // This is shockingly over-engineered, but fairly safe!
+  // ONE property for ONE subelement expl!
+  const markerPublic = {  // the public interface
+    markerStyle: {}       // we give this a 'fill' property soon
+  }
+  Object.defineProperty(markerPublic, 'style', {
+    get() {return markerPublic.markerStyle;}
+  });
+  Object.defineProperty(markerPublic.markerStyle, 'fill', {
+    set(newValue) {markerEl.style.fill = newValue;}
+  });
+  Object.defineProperty(el, 'marker',{
+    get() {return markerPublic;}  // we don't give the caller markerEl, so they can't change things we don't want them to
   });
   
+  //________________________________________________________________________________________________________
+  const trackPublic = {  // the public interface
+    trackStyle: {}       // we give this a 'fill' property soon
+  }
+  Object.defineProperty(trackPublic, 'style', {
+    get() {return trackPublic.trackStyle;}
+  });
+  Object.defineProperty(trackPublic.trackStyle, 'fill', {
+    set(newValue) {trackEl.style.fill = newValue;}
+  });
+  Object.defineProperty(el, 'track',{
+    get() {return trackPublic;}  // we don't give the caller markerEl, so they can't change things we don't want them to
+  });
+  
+  
+  //___________________________________________________________________________________________________________
+  // //get style properties on an accessor-variable and pass them to el.El
+  // const trackAccessor = {
+  //   get style() {
+  //     return trackEl.style;
+  //   }
+  // };
+  // Object.defineProperty(el, 'track', {
+  //   get() {return trackAccessor;}
+  // });
+  // 
   const track_bgAccessor = {
     get style() {
-      return track_bgEl.style;
+      return track_bgEl.style ;
     }
   };
   Object.defineProperty(el, 'track_bg', {
     get() {return track_bgAccessor;}
   });
-  
-  const markerAccessor = {
-    get style() {
-      return markerEl.style;
-    }
-  };
-  Object.defineProperty(el, 'marker', {
-    get() {return markerAccessor;}
-  });
+  // 
+  // const markerAccessor = {
+  //   get style() {
+  //     return markerEl.style;
+  //   }
+  // };
+  // Object.defineProperty(el, 'marker', {
+  //   get() {return markerAccessor;}
+  // });
   
   console.log(trackEl.parent.id + ".track.style.fill: " + trackEl.style.fill);
   
