@@ -11,6 +11,7 @@ export const constructSlider = el => {
   
   
   ////Experimental, not working, yet
+  //// TODO is this a scope-thing? expose the exposing?
   //const subs = ['track_bg', 'track', 'marker']
   ////iterate i
   // for(let i=0; i<subs.length; i++)
