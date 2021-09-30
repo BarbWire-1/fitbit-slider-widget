@@ -10,6 +10,55 @@ export const constructSlider = el => {
   const markerEl = el.getElementById('marker');
   
   
+  ////Experimental, not working, yet
+  //const subs = ['track_bg', 'track', 'marker']
+  ////iterate i
+  // for(let i=0; i<subs.length; i++)
+  // {
+  //   const sub = subs[i]
+  //   const subEl = sub + 'El'
+  //   let accessor = sub + 'Accessor';
+  //   console.log(JSON.stringify(accessor));
+  //   console.log("sub: " + sub)
+  //   //const accessor = sub + 'Accessor';
+  //   const accessor = {
+  //     get style() {
+  //       return subEl.style;
+  //       
+  //     } 
+  //   };
+  //   console.log(JSON.stringify(accessor));
+  //   console.log(subEl)
+  //   Object.defineProperty(el, "'"+sub+"'", {
+  //     get() {return accessor;}
+  //   });
+  // }
+  
+  ////forEach
+  // subs.forEach(e => {
+  //   let accessor = e+'Accessor';
+  //   console.log("Accessor: "+ accessor)
+  //  
+  //   let targetEl = e+'El';
+  //   console.log('e: ' +e);
+  //   console.log("targetEl: " + targetEl)
+  //   
+  //   const accessor = {
+  //     get style() {
+  //       return targetEl.style; 
+  //     } 
+  //   };
+  //   
+  //   //console.log("Accessor: "+ JSON.stringify(targetEl.style));
+  //   Object.defineProperty(el, "'"+e+"'", {
+  //     get() {return accessor;}
+  //     
+  //   });
+  //   console.log(e.style)
+  //   //console.log(e+".style.fill:" + e.style.fill)
+  // })
+ 
+  
   //get style properties on an accessor-variable and pass them to el.El
   const trackAccessor = {
     get style() {
@@ -38,7 +87,7 @@ export const constructSlider = el => {
     get() {return markerAccessor;}
   });
   
-  //console.log(trackEl.parent.id + " fill: " + trackEl.style.fill);
+  console.log(trackEl.parent.id + ".track.style.fill: " + trackEl.style.fill);
   
   
   
@@ -60,7 +109,7 @@ export const constructSlider = el => {
         break;
     }
   }
-  //adjust rounding differences
+  //adjust rounding differences (??)
   _min -= _max / 66;
   _max += _max / 66;
   
