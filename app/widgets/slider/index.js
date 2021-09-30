@@ -16,7 +16,7 @@ export const constructSlider = el => {
       return trackEl.style;
     }
   };
-  Object.defineProperty(el, 'blah', {
+  Object.defineProperty(el, 'track', {
     get: function() {return trackAccessor;}
   });
   
