@@ -10,6 +10,7 @@ export const constructSlider = el => {
   const markerEl = el.getElementById('marker');
   
   
+  //get style properties on an accessor-var and pass them to el.El
   const trackAccessor = {
     get style() {
       return trackEl.style;
