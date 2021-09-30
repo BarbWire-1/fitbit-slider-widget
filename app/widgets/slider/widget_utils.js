@@ -33,6 +33,6 @@ export const getConfig = el => {
       config[propertyName] = propertyValue;
     }
   });
-  //console.log(`getConfig() config=${JSON.stringify(config)} (${Object.keys(config).length} entries)`);
+  console.log(`getConfig() config=${JSON.stringify(config)} (${Object.keys(config).length} entries)`);
   return config;
 }

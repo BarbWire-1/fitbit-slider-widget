@@ -108,17 +108,41 @@ export const constructSlider = el => {
       case 'max':
         _max = Number(value);
         break;
-      case 'marker':
+      case 'marker'://try to nest subs into, but not working. separate config for each?
         switch(name){
           case 'fill':
-            markerEl.style.fill = (value).toString;
+            markerEl.style.fill = String(value);
             break;
           case 'opacity':
-            markerEl.style.opacity = value;
+            markerEl.style.opacity = String(value);
             break;
         }
     }
   }
+//getConfig() config={"min":"0","max":"10000","marker":"fill:purple"} (3 entries)  
+//marker needs to be an object in an object, so...
+
+
+//not defined in widget_utils.js
+//   const configMarker = getConfig(el.markerEl);
+//   for (const name in config) {
+//     const value = (config[name])
+//     switch(name){
+//       case 'fill':
+//         markerEl.style.fill = String(value);
+//         break;
+//       case 'opacity':
+//         markerEl.style.opacity = String(value);
+//         break;
+//     }
+// }
+  
+  
+  
+  
+  
+  
+  
   console.log(markerEl.style.fill)
   //trying to get subs in this config, but not working this way.
   // TODO make own config or get this nested structure??
