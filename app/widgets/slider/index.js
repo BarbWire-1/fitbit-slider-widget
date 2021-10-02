@@ -139,15 +139,15 @@ export const constructSlider = el => {
       case 'max':
         _max = Number(value);
         break;
-      case 'marker'://try to nest subs into, but not working. separate config for each?
-        switch(name){
-          case 'fill':
-            markerEl.style.fill = String(value);
-            break;
-          case 'opacity':
-            markerEl.style.opacity = String(value);
-            break;
-        }
+      // case 'marker'://try to nest subs into, but not working. separate config for each?
+      //   switch(name){
+      //     case 'fill':
+      //       markerEl.style.fill = String(value);
+      //       break;
+      //     case 'opacity':
+      //       markerEl.style.opacity = String(value);
+      //       break;
+      //   }
     }
   }
 //getConfig() config={"min":"0","max":"10000","marker":"fill:purple"} (3 entries)  
