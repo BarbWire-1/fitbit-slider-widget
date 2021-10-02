@@ -75,6 +75,8 @@ export const constructSlider = el => {
   });
   
   //________________________________________________________________________________________________________
+  //copied from Gondwana
+  //example to get single style property
   const trackPublic = {  // the public interface
     trackStyle: {}       // we give this a 'fill' property soon
   }
@@ -89,33 +91,33 @@ export const constructSlider = el => {
   });
   //___________________________________________________________________________________________________________
   
-  //get style properties on an accessor-variable and pass them to el.El
-  const trackAccessor = {
-    get style() {
-      return trackEl.style;
-    }
-  };
-  Object.defineProperty(el, 'track', {
-    get() {return trackAccessor;}
-  });
-  
+   // //get style properties on an accessor-variable and pass them to el.El
+  // const trackAccessor = {
+  //   get style() {
+  //     return trackEl.style;
+  //   }
+  // };
+  // Object.defineProperty(el, 'track', {
+  //   get() {return trackAccessor;}
+  // });
+  // 
   const track_bgAccessor = {
     get style() {
-      return track_bgEl.style;
+      return track_bgEl.style ;
     }
   };
   Object.defineProperty(el, 'track_bg', {
     get() {return track_bgAccessor;}
   });
-  
-  const markerAccessor = {
-    get style() {
-      return markerEl.style;
-    }
-  };
-  Object.defineProperty(el, 'marker', {
-    get() {return markerAccessor;}
-  });
+  // 
+  // const markerAccessor = {
+  //   get style() {
+  //     return markerEl.style;
+  //   }
+  // };
+  // Object.defineProperty(el, 'marker', {
+  //   get() {return markerAccessor;}
+  // });
   
   console.log(trackEl.parent.id + ".track.style.fill: " + trackEl.style.fill);
   
@@ -129,16 +131,52 @@ export const constructSlider = el => {
 
   const config = getConfig(el);
   for (const name in config) {
-    const value = Number(config[name]);   // convert to Number here because the only allowed values are numbers
+    const value = (config[name])//Number(config[name]);   // convert to Number here because the only allowed values are numbers
     switch(name) {
       case 'min':
-        _min = value;
+        _min = Number(value);
         break;
       case 'max':
-        _max = value;
+        _max = Number(value);
         break;
+      case 'marker'://try to nest subs into, but not working. separate config for each?
+        switch(name){
+          case 'fill':
+            markerEl.style.fill = String(value);
+            break;
+          case 'opacity':
+            markerEl.style.opacity = String(value);
+            break;
+        }
     }
   }
+//getConfig() config={"min":"0","max":"10000","marker":"fill:purple"} (3 entries)  
+//marker needs to be an object in an object, so...
+
+
+//not defined in widget_utils.js
+//   const configMarker = getConfig(el.markerEl);
+//   for (const name in config) {
+//     const value = (config[name])
+//     switch(name){
+//       case 'fill':
+//         markerEl.style.fill = String(value);
+//         break;
+//       case 'opacity':
+//         markerEl.style.opacity = String(value);
+//         break;
+//     }
+// }
+  
+  
+  
+  
+  
+  
+  
+  console.log(markerEl.style.fill)
+  //trying to get subs in this config, but not working this way.
+  // TODO make own config or get this nested structure??
   //adjust rounding differences (??)
   _min -= _max / 66;
   _max += _max / 66;
